@@ -1,0 +1,11 @@
+# Alternative: grouped bar chart of Sales and Profit per product, faceted by category
+par(mfrow = c(1, 3))
+for (cat in unique(category)) {
+  idx <- category == cat
+  barplot(rbind(sales[idx], profit[idx] * 5),  # scale profit for visual comparability
+          beside = TRUE, names.arg = product[idx],
+          col = c("steelblue", "orange"),
+          main = cat, ylab = "Value")
+  legend("topright", legend = c("Sales", "Profit x5"), fill = c("steelblue", "orange"), cex = 0.7)
+}
+par(mfrow = c(1, 1))

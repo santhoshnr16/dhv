@@ -1,0 +1,1 @@
+cat("Highest revenue region:", region[which.max(revenue)], "-", max(revenue), "Crores\n")

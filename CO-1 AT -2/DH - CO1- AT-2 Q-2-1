@@ -1,0 +1,7 @@
+# Q2a: Cartesian coordinate system - bar chart
+direction <- c("N","NE","E","SE","S","SW","W","NW")
+frequency <- c(18, 12, 20, 15, 22, 11, 16, 14)
+
+barplot(frequency, names.arg = direction, col = "skyblue",
+        main = "Wind Direction Frequency (Cartesian)",
+        xlab = "Direction", ylab = "Frequency")

@@ -1,0 +1,10 @@
+# Circular mean direction and resultant length (concentration measure)
+angles_rad <- angle_deg[direction] * pi / 180
+sin_sum <- sum(frequency * sin(angles_rad))
+cos_sum <- sum(frequency * cos(angles_rad))
+mean_angle_rad <- atan2(sin_sum, cos_sum)
+mean_angle_deg <- (mean_angle_rad * 180 / pi) %% 360
+resultant_length <- sqrt(sin_sum^2 + cos_sum^2) / sum(frequency)
+
+cat("Mean wind direction (degrees):", round(mean_angle_deg, 1), "\n")
+cat("Concentration (0 = uniform, 1 = single direction):", round(resultant_length, 3), "\n")

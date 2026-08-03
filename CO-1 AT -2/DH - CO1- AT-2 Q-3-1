@@ -1,0 +1,10 @@
+# Q3: Bar chart with sequential color scale based on Marks
+student <- c("A","B","C","D","E","F")
+marks <- c(45, 58, 72, 81, 67, 90)
+
+palette_ordered <- colorRampPalette(c("lightyellow", "darkred"))(length(marks))
+bar_colors <- palette_ordered[rank(marks)]
+
+barplot(marks, names.arg = student, col = bar_colors,
+        main = "Student Marks (Sequential Color Scale)",
+        xlab = "Student", ylab = "Marks", ylim = c(0, 100))

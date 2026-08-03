@@ -1,0 +1,4 @@
+# Poor practice: every bar a different, unrelated color
+barplot(revenue, names.arg = region, col = rainbow(5),
+        main = "Excessive Color Use (Poor Highlighting Practice)",
+        xlab = "Region", ylab = "Revenue (₹ Crores)")

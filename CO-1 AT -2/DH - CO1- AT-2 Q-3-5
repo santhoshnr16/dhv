@@ -1,0 +1,7 @@
+# Side-by-side comparison
+par(mfrow = c(1, 2))
+barplot(marks, names.arg = student, col = colorRampPalette(c("lightyellow","darkred"))(6)[rank(marks)],
+        main = "Sequential Scale\n(implies order)")
+barplot(marks, names.arg = student, col = rainbow(6),
+        main = "Categorical Scale\n(implies no order)")
+par(mfrow = c(1, 1))

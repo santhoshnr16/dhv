@@ -1,0 +1,23 @@
+# Q2b: Polar coordinate system - wind-rose style radar chart (base R, no packages needed)
+direction <- c("N","NE","E","SE","S","SW","W","NW")
+frequency <- c(18, 12, 20, 15, 22, 11, 16, 14)
+
+angle_deg <- c(N = 90, NE = 45, E = 0, SE = 315, S = 270, SW = 225, W = 180, NW = 135)
+angle_rad <- angle_deg[direction] * pi / 180
+
+x <- frequency * cos(angle_rad)
+y <- frequency * sin(angle_rad)
+
+plot(x, y, type = "n", asp = 1, xlab = "", ylab = "",
+     main = "Wind Direction Frequency (Polar)",
+     xlim = c(-25, 25), ylim = c(-25, 25))
+
+for (r in seq(5, 25, 5)) {
+  theta <- seq(0, 2 * pi, length.out = 100)
+  lines(r * cos(theta), r * sin(theta), col = "grey85")
+}
+abline(h = 0, v = 0, col = "grey80")
+
+polygon(x, y, col = rgb(0.2, 0.4, 0.8, 0.4), border = "blue", lwd = 2)
+points(x, y, pch = 19, col = "blue")
+text(x * 1.15, y * 1.15, labels = direction, font = 2)

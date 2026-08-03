@@ -1,0 +1,9 @@
+# Q4: Bar chart highlighting the region with highest revenue
+region <- c("North","South","East","West","Central")
+revenue <- c(820, 760, 790, 1010, 770)
+
+bar_colors <- ifelse(revenue == max(revenue), "firebrick", "grey70")
+
+barplot(revenue, names.arg = region, col = bar_colors,
+        main = "Regional Revenue (Highest Highlighted)",
+        xlab = "Region", ylab = "Revenue (₹ Crores)", ylim = c(0, 1100))

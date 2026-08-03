@@ -1,0 +1,2 @@
+cat("Highest marks:", student[which.max(marks)], "-", max(marks), "\n")
+cat("Lowest marks:", student[which.min(marks)], "-", min(marks), "\n")

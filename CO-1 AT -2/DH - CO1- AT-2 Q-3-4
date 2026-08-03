@@ -1,0 +1,7 @@
+# install.packages("viridis")   # run once if not installed
+library(viridis)
+bar_colors_cb <- viridis(length(marks))[rank(marks)]
+
+barplot(marks, names.arg = student, col = bar_colors_cb,
+        main = "Student Marks (Colorblind-Safe Viridis Scale)",
+        xlab = "Student", ylab = "Marks", ylim = c(0, 100))

@@ -1,0 +1,18 @@
+# Q1: Scatter plot - Sales vs Profit, Category mapped to color, Sales mapped to size
+product <- c("P1","P2","P3","P4","P5","P6")
+sales <- c(120, 90, 150, 80, 135, 100)
+profit <- c(18, 12, 25, 8, 22, 16)
+category <- c("Electronics","Clothing","Electronics","Furniture","Furniture","Clothing")
+
+category_colors <- c(Electronics = "steelblue", Clothing = "darkorange", Furniture = "forestgreen")
+point_colors <- category_colors[category]
+point_size <- sales / 40   # size aesthetic mapped to Sales
+
+plot(sales, profit, pch = 19, col = point_colors, cex = point_size,
+     main = "Sales vs Profit by Category",
+     xlab = "Sales (₹ Lakhs)", ylab = "Profit (%)")
+text(sales, profit, labels = product, pos = 3, cex = 0.8)
+legend("topleft", legend = names(category_colors), col = category_colors,
+       pch = 19, title = "Category")
+
+cat("Correlation between Sales and Profit:", round(cor(sales, profit), 3), "\n")

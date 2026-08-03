@@ -1,0 +1,8 @@
+# Alternative: direct data labels + bold border, no reliance on color
+barplot_heights <- barplot(revenue, names.arg = region, col = "grey85",
+                            main = "Highlighting via Labels and Border",
+                            xlab = "Region", ylab = "Revenue (₹ Crores)", ylim = c(0, 1100))
+text(barplot_heights, revenue + 30, labels = revenue, cex = 0.9)
+rect(barplot_heights[which.max(revenue)] - 0.5, 0,
+     barplot_heights[which.max(revenue)] + 0.5, max(revenue),
+     border = "black", lwd = 3)

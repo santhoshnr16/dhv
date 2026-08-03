@@ -1,0 +1,3 @@
+cat("Correlation between Population and AQI:", round(cor(population, aqi), 3), "\n")
+cat("City with highest population:", city[which.max(population)], "- AQI:", aqi[which.max(population)], "\n")
+cat("City with highest AQI:", city[which.max(aqi)], "- Population:", population[which.max(aqi)], "\n")

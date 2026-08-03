@@ -1,0 +1,23 @@
+# Q5: Bubble chart - Population vs AQI, bubble size = Rainfall, color = Region
+city <- c("A","B","C","D","E")
+population <- c(8.2, 5.6, 9.4, 6.8, 4.9)
+aqi <- c(110, 180, 90, 240, 150)
+rainfall <- c(850, 430, 1200, 520, 680)
+region <- c("North","South","North","East","West")
+
+region_colors <- c(North = "forestgreen", South = "darkorange", East = "firebrick", West = "steelblue")
+
+symbols(population, aqi, circles = sqrt(rainfall) / 10, inches = 0.3,
+        bg = region_colors[region], fg = "black",
+        xlab = "Population (Million)", ylab = "AQI",
+        main = "City Bubble Chart\n(size = Rainfall, color = Region)")
+text(population, aqi, labels = city, pos = 3, cex = 0.9)
+legend("topright", legend = names(region_colors), pt.bg = region_colors,
+       pch = 21, title = "Region", bty = "n")
+
+# Improvement: add an explicit bubble-size legend for Rainfall
+legend("bottomleft", legend = c("400mm", "800mm", "1200mm"),
+       pt.cex = sqrt(c(400, 800, 1200)) / 10, pch = 21, pt.bg = "grey80",
+       title = "Rainfall (size)", bty = "n")
+
+cat("Correlation between Population and AQI:", round(cor(population, aqi), 3), "\n")
